@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#aaaa00">
-<TextView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="this is the second Activity"/>
+    android:layout_height="match_parent"
+    android:background="#aaaa00"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_main_tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="this is the second Activity" />
+
+    <EditText
+        android:id="@+id/activity_second_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/activity_second_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回信息" />
 </LinearLayout>
