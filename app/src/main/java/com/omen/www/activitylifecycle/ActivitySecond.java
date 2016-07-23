@@ -35,7 +35,9 @@ public class ActivitySecond extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Intent intent = getIntent();
         String data = intent.getStringExtra("extra_data");
+        /*getIntExtra(name, defaultValue)*/
         int num = intent.getIntExtra("num", 0);
+
         String name = intent.getStringExtra(MainActivity.BOOK_OF_CATEGORY_PHYSICAL);
         Toast.makeText(ActivitySecond.this, name, Toast.LENGTH_SHORT).show();
         textView = (TextView)findViewById(R.id.activity_main_tv_name);

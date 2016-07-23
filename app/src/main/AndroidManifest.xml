@@ -18,12 +18,18 @@
         <activity
             android:name=".ActivitySecond"
             android:parentActivityName=".MainActivity">
-            <!--指定父Activity，在界面的左上角会出现一个返回按钮-->
-        </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+
+            <!-- 指定父Activity，在界面的左上角会出现一个返回按钮 -->
+        </activity>
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ActivityThird"></activity>
     </application>
 
 </manifest>

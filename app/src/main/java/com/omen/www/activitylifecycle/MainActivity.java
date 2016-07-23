@@ -1,8 +1,8 @@
 package com.omen.www.activitylifecycle;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +12,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public static final String BOOK_OF_CATEGORY_PHYSICAL = "bookNameCategoryPhysical";
+    private Button mButtonThird;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("MainActivity", "onCreate执行了");
-        Button button = (Button) findViewById(R.id.activity_main_btn_start);
+        button = (Button) findViewById(R.id.activity_main_btn_start);
+        mButtonThird = (Button) findViewById(R.id.activity_main_btn_start_third);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+        mButtonThird.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityThird.class);
+                /*startActivity(intent);*/
+                startActivityForResult(intent, 2);
+            }
+        });
 
     }
 
@@ -42,15 +54,23 @@ public class MainActivity extends AppCompatActivity {
     /*在ActivitySecond被销毁后，会回调上一个活动的onActivityResult()方法*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String sendName = "";
         switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
-                    String sendName = data.getStringExtra("backname");
-                    Toast.makeText(this, sendName, Toast.LENGTH_SHORT).show();
+                    sendName = data.getStringExtra("backname");
+
                 }
                 break;
+            case 2:
+                if (resultCode == RESULT_OK) {
+                    sendName = data.getStringExtra("thirdBack");
+                }
             default:
                 break;
+        }
+        if (sendName != "") {
+            Toast.makeText(this, sendName, Toast.LENGTH_SHORT).show();
         }
 
     }

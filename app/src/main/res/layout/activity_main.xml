@@ -3,16 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.omen.www.activitylifecycle.MainActivity">
 
     <Button
         android:id="@+id/activity_main_btn_start"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="run another activity" />
+        android:text="启动第二个activity"
+        android:textAllCaps="false"/>
     <EditText
         android:id="@+id/activity_main_et_name"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/activity_main_btn_start_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动第三个Activity"
+        android:textAllCaps="false"/>
 </LinearLayout>
