@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,11 +42,18 @@ public class ActivitySecond extends AppCompatActivity {
         mEditTextName=(EditText)findViewById(R.id.activity_second_name);
         mButtonSend=(Button)findViewById(R.id.activity_second_send);
         textView.setText(name);
-        String sendName=mEditTextName.getText().toString();
-        Intent intent=new Intent();
-        intent.putExtra("backname",sendName);
-        setResult(RESULT_OK,intent);
-        finish();
+
+        mButtonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sendName=mEditTextName.getText().toString();
+                Intent intent2=new Intent();
+                intent2.putExtra("backname",sendName);
+                setResult(RESULT_OK,intent2);
+                finish();
+            }
+        });
+
 //        Toast.makeText(ActivitySecond.this,Integer.toString(num),Toast.LENGTH_SHORT).show();
         /*Toast.makeText(ActivitySecond.this,""+num,Toast.LENGTH_SHORT).show();*/
 //        Log.d("SecondActivity",data);

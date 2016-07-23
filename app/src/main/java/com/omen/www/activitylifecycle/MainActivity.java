@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    public static final String BOOK_OF_CATEGORY_PHYSICAL="bookNameCategoryPhysical";
+    public static final String BOOK_OF_CATEGORY_PHYSICAL = "bookNameCategoryPhysical";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,27 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("num", num);
                 intent.putExtra(BOOK_OF_CATEGORY_PHYSICAL, editText.getText().toString());
 //                startActivity(intent);
-                s
+                /*第二个参数为requestCode，在启动多个Activity时，用于标识不同的Activity*/
+                startActivityForResult(intent, 1);
             }
         });
+
+    }
+
+    /*由于我们是使用startActivityForResult（）方法来启动ActivitySecond的*/
+    /*在ActivitySecond被销毁后，会回调上一个活动的onActivityResult()方法*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String sendName = data.getStringExtra("backname");
+                    Toast.makeText(this, sendName, Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                break;
+        }
 
     }
 
